@@ -21,16 +21,16 @@ This is a simplified security checklist for anyone who's developing and deployin
 - [ ] Do not attempt to sanitise input (e.g. remove certain bad characters or strings) 
 - [ ] Make sure that if input validation fail, the request is rejected with an appropriate error HTTP response
 
-
-
 ## Access Control
 
 ### Rate Limiting
 - [ ] Make sure that rate limiting/throttling is applied to each API based on either per-session or per-IP or based on other properties that's relevant
 
-### Authentication
+### Authentication and Authorisation 
 - [ ] Avoid developing custom authentication protocols as much as possible
 - [ ] Use an identity provider (IDP) and use open standards and frameworks such as OpenID Connect for user identity and OAuth to delegate authorisation to API resources
+- [ ] Avoid [HTTP basic authentication](https://tools.ietf.org/html/rfc7617) or [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) for user authorisaion
+- [ ] Use [Authorisaion Code grant](https://oauth.net/2/grant-types/authorization-code/) with [PKCE (Proof Key for Code Exchange)](https://oauth.net/2/pkce/) instead of the [Implicit Grant](https://oauth.net/2/grant-types/implicit/) for Single Page Applications (SPAs) 
 
 
 ## Security Configuration

@@ -3,24 +3,35 @@ This is a simplified security checklist for anyone who's developing and deployin
 
 ---
 ## Design
+
 - [ ] Make sure that all the RESTful APIs have Swagger definitions (e.g. `format`, `maximum`, `minimum`, `minItems`, `maxItems`) [See Swagger documentation for more information](https://swagger.io/docs/specification/describing-parameters/)
 - [ ] Make sure that the Swagger definitions contain input validation and all expected header parameters
 - [ ] Make sure that the definitions contains [authentication and authorisaiton requirements](https://swagger.io/docs/specification/authentication/)
-- [ ] Make sure that the API definitions contain expected `Content-Type`
+- [ ] Make sure that the API definitions contain the expected `Content-Type`
 - [ ] Use an API gateway to expose APIs 
 
 ## Input Validation
 
 - [ ] Validate all user-supplied input in the headers and in the body before they are processed
 - [ ] Validate the type (e.g. integer, string, floating point number), size (e.g. minimum string lengths, minimum abd maximum values for numbers) and format the composition of expected inputs
+- [ ] Validate the sizes of the JSON arrays and number of child elements in XML requests
 - [ ] Use built-in libraries or annotations for input validation as much as possible, build custom validators if built-in functionality is inadequate 
 - [ ] Validate the size of the request body and request headers (at preferably at the API gateway)
 - [ ] Validate that the `content-type` in the request header matches the expected content type
-- [ ] Do not attempt to sanitise input (e.g remove certain bad characters or strings) 
-- [ ] Make sure that if input validation fail, the request is rejected
+- [ ] Do not attempt to sanitise input (e.g. remove certain bad characters or strings) 
+- [ ] Make sure that if input validation fail, the request is rejected with an appropriate error HTTP response
+
 
 
 ## Access Control
+
+### Rate Limiting
+- [ ] Make sure that rate limiting/throttling is applied to each API based on either per-session or per-IP or based on other properties that's relevant
+
+### Authentication
+- [ ] Avoid developing custom authentication protocols as much as possible
+- [ ] Use an identity provider (IDP) and use open standards and frameworks such as OpenID Connect for user identity and OAuth to delegate authorisation to API resources
+
 
 ## Security Configuration
 - [ ] Make sure that APIs are exposed through secure channels such as TLS

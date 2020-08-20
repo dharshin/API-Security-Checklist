@@ -30,7 +30,7 @@ This is a simplified security checklist for anyone who's developing and deployin
 - [ ] Avoid developing custom authentication protocols as much as possible
 - [ ] Use an identity provider (IDP) and use open standards and frameworks such as OpenID Connect for user identity and OAuth to delegate authorisation to API resources
 - [ ] Avoid [HTTP basic authentication](https://tools.ietf.org/html/rfc7617) or [OAuth 2.0 Client Credentials Grant](https://oauth.net/2/grant-types/client-credentials/) for user authorisaion
-- [ ] Use [Authorisaion Code grant](https://oauth.net/2/grant-types/authorization-code/) with [PKCE (Proof Key for Code Exchange)](https://oauth.net/2/pkce/) instead of the [Implicit Grant](https://oauth.net/2/grant-types/implicit/) for Single Page Applications (SPAs) 
+- [ ] Use [Authorizaion Code grant](https://oauth.net/2/grant-types/authorization-code/) with [PKCE (Proof Key for Code Exchange)](https://oauth.net/2/pkce/) instead of the [Implicit Grant](https://oauth.net/2/grant-types/implicit/) for Single Page Applications (SPAs) 
 
 
 ## Security Configuration
@@ -43,11 +43,9 @@ This is a simplified security checklist for anyone who's developing and deployin
 - [ ] Do not log user and system credentials 
 - [ ] Do not log user session information (Cookies, JWT tokens, etc)
 
-
 ## Build
 - [ ] Use third-party components that do not have vulnerabilities
 - [ ] Make sure to incorporate security testing into CI/CD processes
-
 
 ## Security Testing
 - [ ] Make sure that static application security testing (SAST) is performed
